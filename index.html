@@ -660,8 +660,8 @@
     const CSV_URL     = `https://docs.google.com/spreadsheets/d/e/${SHEET_KEY}/pub?output=csv&gid=${SHEET_GID}`;
     const GVIZ_URL    = `https://docs.google.com/spreadsheets/d/e/${SHEET_KEY}/gviz/tq?gid=${SHEET_GID}`;
     const PUBHTML_URL = `https://docs.google.com/spreadsheets/d/e/${SHEET_KEY}/pubhtml?gid=${SHEET_GID}&single=true`;
-    const BENCH_SCORE = 7.5;
-    const BENCH_NPS   = 7.5;
+    const BENCH_SCORE = 6.6;
+    const BENCH_NPS   = 7.8;
 
     let allRows=[], allHeaders=[], charts={}, COL={};
 
@@ -789,7 +789,7 @@
       const counts=countSingle(arr);const entries=sortedEntries(counts,12);const total=arr.length;
       if(!entries.length||total<=0){container.innerHTML='<div class="no-data">Sin datos disponibles</div>';return;}
       const segs=entries.map((e,i)=>({label:e[0],count:e[1],p:pct(e[1],total),color:pal[i%pal.length]}));
-      const barHTML=segs.map((s,i)=>`<div class="sv-seg" style="${i===segs.length-1?'flex:1':`width:${s.p}%`};background:linear-gradient(135deg,${s.color}cc,${s.color});" title="${s.label}: ${s.p}% (${s.count})">${s.p>=7?`<span class="sv-seg-label">${s.p}%</span>`:''}</div>`).join('');
+      const barHTML=segs.map(s=>`<div class="sv-seg" style="width:${s.p}%;background:linear-gradient(135deg,${s.color}cc,${s.color});" title="${s.label}: ${s.p}% (${s.count})">${s.p>=7?`<span class="sv-seg-label">${s.p}%</span>`:''}</div>`).join('');
       const legendHTML=segs.map(s=>`<div class="sv-legend-item"><div class="sv-swatch" style="background:${s.color};"></div><span class="sv-legend-label">${s.label} — <strong>${s.p}%</strong></span></div>`).join('');
       container.innerHTML=`<div class="sv-wrap"><div class="sv-bar">${barHTML}</div><div class="sv-legend">${legendHTML}</div></div>`;
     }
