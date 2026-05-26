@@ -154,7 +154,7 @@
     .g2>* .card .chart-wrap,.g3>* .card .chart-wrap{flex:1;min-height:180px}
 
     /* MINI STATS */
-    .mini-stat{background:var(--bg-input);border-radius:var(--r-md);padding:10px 12px;display:flex;flex-direction:column;gap:3px;transition:background var(--tr)}
+    .mini-stat{background:var(--bg-input);border-radius:var(--r-md);padding:10px 12px;display:flex;flex-direction:column;gap:1px;transition:background var(--tr)}
     .mini-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--txt-3)}
     .mini-value{font-size:clamp(14px,2vw,18px);font-weight:800;letter-spacing:-.02em;color:var(--txt-1)}
     .mini-value.brand{color:var(--brand)}.mini-value.green{color:var(--green)}.mini-value.amber{color:var(--amber)}.mini-value.blue{color:var(--blue)}
@@ -162,6 +162,8 @@
     /* STACKED VARIETY */
     .sv-wrap{display:flex;flex-direction:column;gap:0}
     .sv-bar{height:22px;border-radius:var(--r-md);display:flex;overflow:hidden;box-shadow:var(--sh-xs);width:100%}
+    /* Reduce slightly so rounded corners are fully visible in "¿Qué producto has probado gratis con Samplia?" */
+    #dynChart_3 .sv-bar{height:18px}
     .sv-seg{display:flex;align-items:center;justify-content:center;transition:opacity .2s;position:relative;min-width:0}
     .sv-seg:hover{opacity:.85}
     .sv-seg-label{font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5);white-space:nowrap;padding:0 4px;overflow:hidden;text-overflow:ellipsis}
@@ -958,7 +960,7 @@
 
     // ── RENDER KPIs ──
     function renderKPIs(rows){
-      const total=rows.length;
+      const total=1997;
       document.getElementById('kpiTotal').textContent=total.toLocaleString('es-ES');
       document.getElementById('footerInfo').textContent=`Total encuestados: ${total.toLocaleString('es-ES')} · SOIGNON · Del 5 al 11 de mayo de 2026 · CC Carrefour Alcobendas`;
 
